@@ -1,0 +1,93 @@
+%matplotlib inline
+import matplotlib.pyplot as plt import scipy.misc
+import matplotlib.image as mpimg|
+import numpy as np
+img mpimg.imread('map name')
+Imax=1.5 (#maximum of intensity obtained form the color-coded map)
+#print (img)
+#print (img)
+plt.imshow(img) plt.show()
+lx, ly, g = img.shape
+print ('1x =',lx, 'ly =', ly)
+# Crop image
+y1=0
+y2=470 (#size of the map)
+x1=0
+x2=470 (#size of the map)
+dy=y2-y1
+dx=x2-x1
+crop = img[y1:y2, x1:x2]
+plt.imshow(crop)
+print ('min =',np.min(crop), 'max =', np.max(crop))
+#transformation en niveau de gris rainbow plt.cm.rainbow
+rainbow._init()
+lut =
+rainbow._lut[....., :]
+z = crop
+-
+lut[:, None, None, :]
+Z *= Z
+imgg
+d = z.sum(axis=-1)
+d.argmin (axis=0)
+f, (ax0, ax1, ax2)
+=
+plt.subplots(1, 3)
+ax0.imshow(crop, cmap=plt.cm.gray)
+ax1.imshow(imgg, cmap=plt.cm.gray) ax2.imshow(imgg, cmap=plt.cm.rainbow)
+gray_min=np.min(imgg)
+gray_max=np.max(imgg)
+plt.show()
+print ('Gray min =',gray_min, 'Gray max =',gray_max)
+    
+#Crop en 4 images
+s=220
+decalx=10
+plt.imshow(imgg, cmap=plt.cm.rainbow)
+plt.plot([decalx,
+decalx,s+decalx,s+decalx,decalx],
+[decalx, s+decalx,s+decalx, decalx, decalx])
+
+plt.plot([dx-s-decalx,dx-s-decalx,dx-decalx,dx-decalx,dx-s-decalx],
+[decalx, decalx+s,decalx+s, decalx, decalx])
+plt.plot([decalx,s+decalx,s+decalx,decalx,decalx],
+[dy-s-decalx,dy-s-decalx,dy-decalx,dy-decalx,dy-s-decalx])
+plt.plot([dx-s-decalx,dx-decalx,dx-decalx,dx-s-decalx,dx-s-decalx],
+plt.show()
+=
+cropA cropC
+=
+cropB cropD
+=
+=
+[dy-s-decalx,dy-s-decalx,dy-decalx,dy-decalx,dy-s-decalx])
+imgg[decalx:s+decalx, decalx:s+decalx]
+imgg[dy-s-decalx:dy-decalx, decalx:s+decalx] imgg[decalx:s+decalx, dx-s-decalx: dx-decalx]
+imgg[dy-s-decalx:dy-decalx, dx-s-decalx:dx-decalx]
+f, ((ax1, ax2), (ax3, ax4))
+=
+plt.subplots (2, 2)
+ax1.imshow(cropA, cmap=plt.cm.gray, vmin=gray_min, vmax=gray_max) ax1.set_title("A")
+ax2.imshow(cropB, cmap=plt.cm.gray, vmin=gray_min, vmax=gray_max) ax2.set_title("B")
+ax3.imshow(cropC, cmap=plt.cm.gray, vmin=gray_min, vmax=gray_max) ax3.set_title("C")
+ax4.imshow(cropD, cmap=plt.cm.gray, vmin=gray_min, vmax=gray_max) ax4.set_title("D")
+plt.show()
+print ('A Gray mean =', round (np. mean (cropA), 2), 'Gray min =',np.min(cropA), 'Gray max =', np.max(cropA), 'Gray std =', round(np.std(cropA),2)) print ('B Gray mean =', round (np. mean (cropB), 2), 'Gray min =', np.min(cropB), 'Gray max =', np.max(cropB), 'Gray std =', round(np.std(cropB),2)) print ('C Gray mean =',round (np. mean (cropC), 2), 'Gray min =', np.min(cropC), 'Gray max =', np.max(cropC), 'Gray std =', round(np.std (cropC),2)) print ('D Gray mean =', round (np. mean (cropD), 2), 'Gray min =',np.min(cropD), 'Gray max=', np.max(cropD), 'Gray std = ', round (np. std (cropD), 2))
+=
+plt.subplots (2, 2)
+f, ((ax1, ax2), (ax3, ax4)) ax1.imshow(cropA, cmap=plt.cm.gray) ax1.set_title("A")
+ax2.imshow(cropB, cmap=plt.cm.gray)
+ax2.set_title("B")
+ax3.imshow(cropC, cmap=plt.cm.gray)
+ax3.set_title("C")
+ax4.imshow(cropD, cmap=plt.cm.gray)
+ax4.set_title("D")
+plt.show()
+yerr = [np.std (cropC)*Imax/255, np.std (cropD) *Imax/255, np.std (cropA) *Imax/255, np.std (cropB)*Imax/255]
+plt.errorbar (["C", "D", "A", "B"] #(operating conditions),
+[np.mean (cropC) *Imax/255, np. mean (cropD)*Imax/255,
+np.mean (cropA) *Imax/255, np. mean (cropB) *Imax/255], yerr=yerr, fmt='x')
+plt.xlabel("investigated parameter")
+plt.ylabel("mean intensity of investigated peak (xx $cm^{-1}$)")
+print (np.mean (cropC) *Imax/255, np.mean (cropD)*Imax/255, np.mean (cropA) *Imax/255, np.mean (cropB)*Imax/255)
+print (np.std (cropC) *Imax/255, np.std (cropD) *Imax/255, np.std (cropA) *Imax/255, np.std (cropB)*Imax/255)
